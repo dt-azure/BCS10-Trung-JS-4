@@ -11,14 +11,19 @@ $( function() {
 } );
 
 // Lay ngay mac dinh
-$( document ).ready(function() {
+function getCurrentDate() {
     var d = new Date();
 
-    var month = d.getMonth()+1;
+    var month = d.getMonth() + 1;
     var day = d.getDate();
 
-    var output = ((''+month).length<2 ? '0' : '') + month  + '/' +
-    ((''+day).length<2 ? '0' : '') + day + '/' +
-    d.getFullYear();
-    $('#datepicker').val(output);   
+    var output = (('' + month).length < 2 ? '0' : '') + month + '/' +
+        (('' + day).length < 2 ? '0' : '') + day + '/' +
+        d.getFullYear();
+
+    return output;
+};
+
+$( document ).ready(function() {
+    $('#datepicker').val(getCurrentDate());   
 });
